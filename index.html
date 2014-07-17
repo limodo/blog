@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app>
+<head>
+	<meta charset="utf-8" />
+	<link href="http://libs.baidu.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="http://libs.baidu.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet" />
+	<title>李明博客</title>
+	<style type="text/css">
+		.logo{padding:40px 0 0 0;}
+		.container{background:url('assets/img/index-lan-die.jpg') no-repeat bottom right;min-height:600px;}
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div ng-controller="resourcesCtrl">
+		<div class="row">
+			<div class="span3 logo">
+				<img src="assets/img/index-programmer.jpg" />
+			</div>
+			<div class="row">
+				<div class="span9">
+					<h1>Hi~</h1>
+					<p>本博客主要关于Drupal：实际应用、模块开发、主题制作、相关资源</p>
+					<p></p>
+					<p></p>
+				</div>
+				<div class="span9">
+					<button class="btn"><a href="liuyan.html"><i class="icon-comment"></i> 留言板</a></button>
+					<hr />
+					<input ng-model="query" type="text" placeholder="输入关键词..." />
+					<div class="list">
+						<ol>
+							<li ng-repeat="resource in resources | filter:query | limitTo:20"><a href="html/{{resource.url}}.html" target="_blank" title="{{resource.title}}">{{resource.title}}</a></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+<script type="text/javascript">
+	function resourcesCtrl($scope, $http, $templateCache){
+		$http.get('assets/archives.json', {cache:$templateCache}).success(function(data){
+			$scope.resources = data;
+		});
+	};
+</script>
+</body>
+</html>

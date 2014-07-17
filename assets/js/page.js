@@ -1,0 +1,1 @@
+$(document).ready(function(){$('#headline').html('<i class="icon-home"></i><a href="../index.html">首页</a>');});
