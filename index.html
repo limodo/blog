@@ -22,7 +22,7 @@
 				<div class="span9">
 					<h1>Hi~</h1>
 					<p>本博客主要关于Drupal：实际应用、模块开发、主题制作、相关资源</p>
-					<p>计划：接下来先整理一下有助于使用、学习Drupal的相关资源。20140720</p>
+					<p>[公告] 已经添加一些Drupal的相关资源。20140721</p>
 				</div>
 				<div class="span9">
 					<button class="btn"><a href="page/liuyan.html"><i class="icon-comment"></i> 留言板</a></button>
@@ -42,7 +42,7 @@
 <script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
 <script type="text/javascript">
 	function resourcesCtrl($scope, $http, $templateCache){
-		$http.get('assets/archives.json', {cache:$templateCache}).success(function(data){
+		$http.get('assets/blog.json', {cache:$templateCache}).success(function(data){
 			$scope.resources = data;
 		});
 	};
